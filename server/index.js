@@ -8,12 +8,20 @@ import userRoutes from "./routes/user_routes.js"
 import courseRoutes from "./routes/course_routes.js"
 import adminRoutes from "./routes/admin_routes.js"
 import { connectDB } from "./database/db.js"
+import Razorpay from "razorpay"
+import cors from "cors"
+
 
 const app=express()
 
 
-app.use(express.json())
+export const instance=new Razorpay({
+    key_id:process.env.VISA_KEY,
+    key_secret:process.env.RAZORPAY_SECRET
+})
 
+app.use(express.json())
+app.use(cors())
 
 
 app.use("/api",userRoutes)
