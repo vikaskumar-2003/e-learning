@@ -1,0 +1,23 @@
+import React from 'react'
+import './auth.css'
+import { Link } from 'react-router-dom'
+
+const Verfify = () => {
+  return (
+   <div className="auth-page">
+    <div className="auth-form">
+        <h2>Verify Account</h2>
+        <form action="">
+            <label htmlFor="otp">Otp</label>
+            <input type="number" required />
+            <button className='common-btn' >Verify</button>
+        </form>
+        <p>
+            Go to <Link to={"/login"}>Login</Link>  Page
+        </p>
+    </div>
+   </div>
+  )
+}
+
+export default Verfify

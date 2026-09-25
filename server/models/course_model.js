@@ -42,4 +42,4 @@ createdAt:{
 })
 
 
-export const Course=mongoose.model("Couser",courseSchema)
+export const Course=mongoose.model("Course",courseSchema)

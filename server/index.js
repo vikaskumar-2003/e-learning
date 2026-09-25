@@ -28,7 +28,7 @@ app.use("/api",userRoutes)
 app.use("/api",courseRoutes)
 app.use("/api",adminRoutes)
 
-const port=5000
+const port=process.env.PORT||5000
 
 
 

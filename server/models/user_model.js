@@ -19,10 +19,10 @@ const userSchema=new mongoose.Schema({
      
         default:"user"
     },
-    subscription:{
+    subscription:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Course"
-    }
+    }]
 
 },{timeStamps:true})
 
