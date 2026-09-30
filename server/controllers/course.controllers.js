@@ -10,7 +10,7 @@ export const gelAllCoures=TryCatch(async(req,res)=>{
 
 const courses=await Course.find()
 
-res.json({
+res.status(200).json({
     courses
 })
 
@@ -124,7 +124,7 @@ export const paymentVerification=TryCatch(async(req,res)=>{
 
    const{razorpay_order_id,razorpay_payment_id,razorpay_signature} =req.body
 
-     const body=razorpay_order_id + " " + razorpay_payment_id
+     const body=razorpay_order_id + "|" + razorpay_payment_id
 
      const expectedSignature=crypto.createHmac("sha256",process.env.RAZORPAY_SECRET).update(body).digest("hex")
 

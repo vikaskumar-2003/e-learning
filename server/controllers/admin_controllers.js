@@ -12,7 +12,7 @@ export const createCourse=TryCatch(async(req,res)=>{
   
   const image=req.file
 
-  await Course({
+  await Course.create({
     title,
     description,
     category,

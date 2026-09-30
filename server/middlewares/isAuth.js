@@ -33,7 +33,7 @@ export const isAdmin=async (req,res,next) => {
    try {
     if(req.user.role!=="admin"){
         return  res.status(500).json({
-        message:error.message
+        message:"you are not admin"
     })
     }
 

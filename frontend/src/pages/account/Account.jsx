@@ -4,10 +4,12 @@ import './account.css'
 import { IoLogOut } from "react-icons/io5";
 import { UserData } from '../../context/userContext';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Account = ({user}) => {
 
     const {setIsAuth,setUser}=UserData()
+   const navigate=useNavigate()
 
     const logoutHandler=()=>{
         localStorage.clear()
@@ -38,7 +40,7 @@ const Account = ({user}) => {
 
             </p>
 
-            <button className='common-btn'> <MdDashboard/>
+            <button onClick={()=>navigate(`/${user._id}/dashboard`)} className='common-btn'> <MdDashboard/>
 DashBoard
             </button>
 

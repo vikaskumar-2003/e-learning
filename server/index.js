@@ -24,9 +24,13 @@ app.use(express.json())
 app.use(cors())
 
 
+
 app.use("/api",userRoutes)
 app.use("/api",courseRoutes)
 app.use("/api",adminRoutes)
+
+
+app.use("/upload",express.static("upload"))
 
 const port=process.env.PORT||5000
 

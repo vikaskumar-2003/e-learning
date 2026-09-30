@@ -1,5 +1,5 @@
 import express from "express"
-import { checkOut, fetchLecture, fetchLectures, gelAllCoures, getMyCourse, getSingleCourse } from "../controllers/course.controllers.js"
+import { checkOut, fetchLecture, fetchLectures, gelAllCoures, getMyCourse, getSingleCourse, paymentVerification } from "../controllers/course.controllers.js"
 import { isAuth } from "../middlewares/isAuth.js"
 
 const router=express.Router()
@@ -13,4 +13,5 @@ router.get("/course/:id",getSingleCourse)
 router.get("/lectures/:id",fetchLectures)
 router.get("/lecture/:id",fetchLecture)
 
+router.post("/verfication/:id",isAuth,paymentVerification)
 export default router
