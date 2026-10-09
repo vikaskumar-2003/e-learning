@@ -33,9 +33,24 @@ res.json({
 
 
 export const fetchLectures=TryCatch(async(req,res)=>{
+    console.log(req.params.id);
+    
     const lectures=await Lecutre.find({course:req.params.id})
 
+     console.log(lectures);
+     
+      console.log(req.user);
+       
+
     const user=await User.findById(req.user._id)
+
+     console.log("useeeeer",user);
+     
+  if (!user) {
+        return res.status(404).json({
+            message: "User not found"
+        });
+    }
 
      if(user.role==="admin"){
         return res.json({
@@ -69,7 +84,7 @@ export const fetchLecture=TryCatch(async(req,res)=>{
      }
 
 
-     if(!user.subscription.includes(req.params.id)){
+     if(!user.subscription.includes(lecture.course)){
         return res.status(400).json({
             message:"You have not subscribed to this course"
         })
@@ -83,6 +98,8 @@ export const fetchLecture=TryCatch(async(req,res)=>{
 export const getMyCourse=TryCatch(async (req,res) => {
     
   const courses=await Course.find({_id:req.user.subscription})
+   console.log("cpppp",courses);
+   
 
    res.json({
     courses

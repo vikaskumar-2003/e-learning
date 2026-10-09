@@ -38,6 +38,8 @@ export const addLecture=TryCatch(async(req,res)=>{
   message:"No course with this id"
  })
 
+ const file = req.file;
+
  const {title,description}=req.body
 
  const lecture=await Lecutre.create({

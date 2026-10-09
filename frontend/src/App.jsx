@@ -16,6 +16,8 @@ import Courses from "./pages/courses/Courses";
 import CourseDescription from "./pages/coursedescription/CourseDescription";
 import PaymentSuccess from "./pages/paymentSuccess/PaymentSuccess";
 import Dashboard from "./pages/dashboard/Dashboard";
+import CourseStudy from "./pages/coursestudy/CourseStudy";
+import Lecture from "./pages/lecture/Lecture";
 
 const App = () => {
  
@@ -63,6 +65,9 @@ const App = () => {
 
    <Route path='/:id/dashboard' element={isAuth?<Dashboard/>:<Login/>}/>
 
+   <Route path='/course/study/:id' element={isAuth?<CourseStudy/>:<Login/>}/>
+
+    <Route path='/lectures/:id' element={isAuth?<Lecture user={user} />:<Login/>}/>
 
   <Route path="*" element={<ErrorPage />} />
 

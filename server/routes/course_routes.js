@@ -10,8 +10,8 @@ router.get("/mycourse",isAuth,getMyCourse)
 router.post('/course/checkout/:id',isAuth,checkOut)
 
 router.get("/course/:id",getSingleCourse)
-router.get("/lectures/:id",fetchLectures)
-router.get("/lecture/:id",fetchLecture)
+router.get("/lectures/:id",isAuth,fetchLectures)
+router.get("/lecture/:id",isAuth,fetchLecture)
 
 router.post("/verfication/:id",isAuth,paymentVerification)
 export default router

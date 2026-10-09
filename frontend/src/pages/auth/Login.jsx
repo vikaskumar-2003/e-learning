@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './auth.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserData } from '../../context/userContext'
+import { CourseData } from '../../context/CourseContext'
 
 
 const Login = () => {
@@ -11,11 +12,12 @@ const Login = () => {
   const[password,setPassword]=useState("")
   const {btnLoading,loginUser} =UserData()
 
+  const {fetchMyCourse}=CourseData()
 
   const submitHandler=async(e)=>{
    
     e.preventDefault()
-    await loginUser(email,password,navigate)
+    await loginUser(email,password,navigate,fetchMyCourse)
 
   }
 

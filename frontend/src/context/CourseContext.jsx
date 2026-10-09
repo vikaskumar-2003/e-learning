@@ -28,6 +28,7 @@ export const CourseContextProvide=({children})=>{
     }
     
     async function fetchCourse(id){
+console.log("ididididid",id);
 
     try {
        const {data} =await axios.get(`${server}/api/course/${id}`)
